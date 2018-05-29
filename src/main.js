@@ -5,9 +5,6 @@ import App from './App';
 import router from './router';
 import Vuex from 'vuex';
 import store from './vuex/store';
-import 'jquery';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min';
 
 Vue.use(Vuex);
 

@@ -10,7 +10,6 @@
         >
           {{author}}
         </a>
-        <button type="button" class="btn btn-default">Left</button>
       </li>
       <li>
         <a

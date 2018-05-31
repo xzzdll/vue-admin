@@ -8,7 +8,8 @@ import store from './vuex/store';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
-Vue.use(Vuex, ElementUI);
+Vue.use(Vuex);
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
 

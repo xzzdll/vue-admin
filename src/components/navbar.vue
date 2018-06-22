@@ -1,5 +1,5 @@
 <template>
-  <div style="margin:auto 0;position:fixed;width:calc(100% - 180px);min-width:800px;left:200px;top:0px">
+  <div style="margin:auto 0;position:fixed;width:calc(100% - 210px);min-width:800px;left:210px;top:0px">
     <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect" background-color="#048cff" text-color="#fff" active-text-color="#ffd04b">
       <el-menu-item index="1">
         <div>件量版块</div>

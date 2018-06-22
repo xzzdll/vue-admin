@@ -1,10 +1,10 @@
 <template>
-  <el-row class="tac" style="position:fixed;width:200px;height:861px">
+  <el-row class="tac" style="position:fixed;width:210px;height:861px;">
     <el-col :span="24">
       <div style="height:61px;background-color:#20252a;position: relative;">
         <img src="../assets/img/logo_bg.png" class='logo' />
       </div>
-      <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:861px">
+      <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:861px;border-right:none">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>

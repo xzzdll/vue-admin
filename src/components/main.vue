@@ -20,8 +20,10 @@ export default {
   },
   mounted: function () {
     console.log('我被挂载了');
-    fetch('/api/data').then((res) => {
-      console.log(res.data);
+    fetch('/api/data').then((res, rej) => {
+      console.log(res);
+    }).catch((rej) => {
+      console.log(rej);
     });
   },
   beforeUpdate: function () {

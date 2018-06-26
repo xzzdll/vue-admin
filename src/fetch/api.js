@@ -6,20 +6,20 @@ axios.defaults.timeout = 5000;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 axios.defaults.baseURL = 'http://localhost:4000/';
 
-//POST传参序列化，请求拦截器
+// POST传参序列化，请求拦截器
 axios.interceptors.request.use((config) => {
-  if(config.method  === 'post'){
+  if (config.method === 'post') {
     config.data = qs.stringify(config.data);
   }
   return config;
-}, (error) =>{
+}, (error) => {
   console.log('错误的传参');
   return Promise.reject(error);
 });
 
-//返回状态判断，响应拦截器
-axios.interceptors.response.use((res) =>{
-  if(!res.data.success){
+// 返回状态判断，响应拦截器
+axios.interceptors.response.use((res) => {
+  if (!res.data.success) {
     // _.toast(res.data.msg);
     return Promise.reject(res);
   }
@@ -29,7 +29,7 @@ axios.interceptors.response.use((res) =>{
   return Promise.reject(error);
 });
 
-export function fetch(url, params) {
+export function fetch (url, params) {
   return new Promise((resolve, reject) => {
     axios.post(url, params)
       .then(response => {
@@ -47,7 +47,7 @@ export default {
   /**
      * 用户登录
      */
-  Login(params) {
+  Login (params) {
     return fetch('/users/api/userLogin', params);
   }
 };

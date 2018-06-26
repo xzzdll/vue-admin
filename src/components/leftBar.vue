@@ -63,7 +63,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style lang="scss" scoped>
 li {
   text-align: left;
 }

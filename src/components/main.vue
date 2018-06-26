@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import {fetch} from '../fetch/api.js';
 export default {
   data () {
     return {};
@@ -19,6 +20,9 @@ export default {
   },
   mounted: function () {
     console.log('我被挂载了');
+    fetch('/api/data').then((res) => {
+      console.log(res.data);
+    });
   },
   beforeUpdate: function () {
     console.log('我将要被更新');

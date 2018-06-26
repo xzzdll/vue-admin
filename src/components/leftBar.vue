@@ -4,7 +4,7 @@
       <div style="height:61px;background-color:#20252a;position: relative;">
         <img src="../assets/img/logo_bg.png" class='logo' />
       </div>
-      <el-menu default-active="2" class="el-menu-vertical-demo" router=true unique-opened=true @open="handleOpen" @close="handleClose" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:861px;border-right:none">
+      <el-menu default-active="2" class="el-menu-vertical-demo" v-bind:router="true" v-bind:unique-opened="true" @open="handleOpen" @close="handleClose" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:861px;border-right:none">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>

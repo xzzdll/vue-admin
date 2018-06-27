@@ -53,7 +53,6 @@ export default {
   pointer-events: none;
   user-select: none;
   opacity: 0.4;
-  z-index: 99999;
 }
 
 .waterMackContent {

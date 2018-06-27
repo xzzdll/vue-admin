@@ -2,31 +2,31 @@
   <div class='waterMack'>
     <div class='waterMackContent'>
       <img v-bind:src=[imgUrl]>
-      <p>朱跃林 &nbsp; 2018/6/27</p>
+      <p>John &nbsp; 2018/6/27</p>
     </div>
     <div class='waterMackContent'>
       <img v-bind:src=[imgUrl]>
-      <p>朱跃林 &nbsp; 2018/6/27</p>
+      <p>John &nbsp; 2018/6/27</p>
     </div>
     <div class='waterMackContent'>
       <img v-bind:src=[imgUrl]>
-      <p>朱跃林 &nbsp; 2018/6/27</p>
+      <p>John &nbsp; 2018/6/27</p>
     </div>
     <div class='waterMackContent'>
       <img v-bind:src=[imgUrl]>
-      <p>朱跃林 &nbsp; 2018/6/27</p>
+      <p>John &nbsp; 2018/6/27</p>
     </div>
     <div class='waterMackContent'>
       <img v-bind:src=[imgUrl]>
-      <p>朱跃林 &nbsp; 2018/6/27</p>
+      <p>John &nbsp; 2018/6/27</p>
     </div>
     <div class='waterMackContent'>
       <img v-bind:src=[imgUrl]>
-      <p>朱跃林 &nbsp; 2018/6/27</p>
+      <p>John &nbsp; 2018/6/27</p>
     </div>
     <div class='waterMackContent'>
       <img v-bind:src=[imgUrl]>
-      <p>朱跃林 &nbsp; 2018/6/27</p>
+      <p>John &nbsp; 2018/6/27</p>
     </div>
   </div>
 </template>

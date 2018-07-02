@@ -1,12 +1,12 @@
 <template>
   <div class="main-body">
-    <el-tabs tab-position=top style="height: 200px;">
-      <el-tab-pane label="用户管理">
+    <el-tabs tab-position=top v-model="用户管理" style="height: 200px;" closable @tab-remove="removeTab">
+      <el-tab-pane label="用户管理" name="用户管理">
         <el-button type="text" @click="centerDialogVisible = true">点击打开 Dialog</el-button>
       </el-tab-pane>
-      <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-      <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-      <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+      <el-tab-pane label="配置管理" name="配置管理">配置管理</el-tab-pane>
+      <el-tab-pane label="角色管理" name="角色管理">角色管理</el-tab-pane>
+      <el-tab-pane label="定时任务补偿" name="定时任务补偿">定时任务补偿</el-tab-pane>
     </el-tabs>
 
     <water-mack></water-mack>
@@ -31,12 +31,19 @@ export default {
       centerDialogVisible: false
     };
   },
-  methods: {},
+  methods: {
+    removeTab (targetName) {
+      document.getElementById('tab-' + targetName).remove();
+      document.getElementById('pane-' + targetName).remove();
+      if (document.getElementsByClassName('el-tabs__item').length > 0) {
+        document.getElementsByClassName('el-tabs__item')[0].click();
+      }
+    }
+  },
   components: {
     waterMack
   },
   mounted: function () {
-    console.log('我被挂载了');
     let loading = this.$loading({
       lock: true,
       text: '数据驾驶舱努力加载中',
@@ -46,6 +53,7 @@ export default {
 
     setTimeout(() => {
       loading.close();
+      document.getElementsByClassName('el-tabs__item')[0].click();
     }, 2000);
 
     fetch('/api/data')
@@ -55,9 +63,6 @@ export default {
       .catch(rej => {
         console.log(rej);
       });
-  },
-  beforeUpdate: function () {
-    console.log('我将要被更新');
   },
   updated: function () {
     console.log('我被更新了');

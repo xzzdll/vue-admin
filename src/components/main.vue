@@ -46,7 +46,7 @@ export default {
   mounted: function () {
     let loading = this.$loading({
       lock: true,
-      text: '数据驾驶舱努力加载中',
+      text: '数据驾驶舱启动中',
       spinner: 'el-icon-loading',
       background: 'rgba(0, 0, 0, 0.7)'
     });
@@ -58,14 +58,14 @@ export default {
 
     fetch('/api/data')
       .then((res, rej) => {
-        console.log(res);
+
       })
       .catch(rej => {
-        console.log(rej);
+
       });
   },
   updated: function () {
-    console.log('我被更新了');
+
   }
 };
 </script>

@@ -23,50 +23,46 @@
 </template>
 
 <script>
-import { fetch } from '../fetch/api.js';
-import waterMack from '@/components/waterMack';
+import { fetch } from "../fetch/api.js";
+import waterMack from "@/components/waterMack";
 export default {
-  data () {
+  data() {
     return {
       centerDialogVisible: false
     };
   },
   methods: {
-    removeTab (targetName) {
-      document.getElementById('tab-' + targetName).remove();
-      document.getElementById('pane-' + targetName).remove();
-      if (document.getElementsByClassName('el-tabs__item').length > 0) {
-        document.getElementsByClassName('el-tabs__item')[0].click();
+    removeTab(targetName) {
+      document.getElementById("tab-" + targetName).remove();
+      document.getElementById("pane-" + targetName).remove();
+      if (document.getElementsByClassName("el-tabs__item").length > 0) {
+        document.getElementsByClassName("el-tabs__item")[0].click();
       }
     }
   },
   components: {
     waterMack
   },
-  mounted: function () {
+  mounted: function() {
     let loading = this.$loading({
       lock: true,
-      text: '数据驾驶舱启动中',
-      spinner: 'el-icon-loading',
-      background: 'rgba(0, 0, 0, 0.7)'
+      text: "数据驾驶舱启动中",
+      spinner: "el-icon-loading",
+      background: "rgba(0, 0, 0, 0.7)"
     });
 
     setTimeout(() => {
       loading.close();
-      document.getElementsByClassName('el-tabs__item')[0].click();
+      document.getElementsByClassName("el-tabs__item")[0].click();
     }, 2000);
 
-    fetch('/api/data')
+    fetch("/api/data")
       .then((res, rej) => {
-
+        console.log(res.data);
       })
-      .catch(rej => {
-
-      });
+      .catch(rej => {});
   },
-  updated: function () {
-
-  }
+  updated: function() {}
 };
 </script>
 

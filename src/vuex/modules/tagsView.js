@@ -7,6 +7,7 @@ const tagsView = {
     defaultViews: [
       // 数据格式
       {
+        routerPath: '/',
         title: '首页', // 展示的标题
         name: '0', // tab对应的别名
         isClosable: false // welcome 页面不支持关闭
@@ -15,8 +16,10 @@ const tagsView = {
   },
   mutations: {
     ADD_VISITED_VIEWS: (state, view) => {
+      if (state.visitedViews.some(v => v.name === view.name) || state.defaultViews.some(v => v.name === view.name) || view.name === 'layout') return;
       state.visitedViews.push({
-        title: view.title,
+        routerPath: view.meta.routerPath,
+        title: view.meta.title,
         name: view.name
       });
     },

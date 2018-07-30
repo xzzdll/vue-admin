@@ -16,7 +16,8 @@ export default {
   data () {
     return {
       editableTabsValue: '0',
-      tabIndex: 0
+      tabIndex: 0,
+      slectedTag: {}
     };
   },
   computed: {
@@ -37,8 +38,27 @@ export default {
     }),
     handleTabsEdit (targetName, action) {
       if (action === 'remove') {
-        this.delVisitedTab(targetName);
+        this.delVisitedTab(targetName).then((views) => {
+          if (views.length === 0) {
+            this.$router.push('/');
+          } else {
+            const latestView = views.slice(-1)[0];
+            this.$router.push(latestView.routerPath);
+            this.editableTabsValue = latestView.name;
+          }
+        });
       }
+    }
+  },
+  mounted () {
+    this.addVisitedTab(this.$route);
+    this.editableTabsValue = this.$route.name;
+  },
+  watch: {
+    $route () {
+      // console.log(this.$route)
+      this.addVisitedTab(this.$route);
+      this.editableTabsValue = this.$route.name;
     }
   },
   components: {

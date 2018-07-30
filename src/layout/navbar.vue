@@ -1,6 +1,6 @@
 <template>
-  <div style="margin:auto 0;position:fixed;width:calc(100% - 210px);min-width:800px;left:210px;top:0px;background-color: #048cff;height:50px">
-    <span>{{curDate}}</span>
+  <div style="margin:auto 0;position:fixed;width:100%;min-width:800px;top:0px;background-color: #048cff;height:32px;color:#fff;">
+    <span class="header-left">{{curDate}}  登陆人：John</span>
   </div>
 </template>
 
@@ -23,3 +23,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.header-left {
+  height: 100%;
+  line-height: 32px;
+  margin-left: 15px;
+}
+</style>

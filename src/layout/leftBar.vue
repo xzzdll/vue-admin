@@ -1,5 +1,5 @@
 <template>
-  <el-row class="tac" style="position:fixed;width:210px;height:861px;top:50px">
+  <el-row class="tac" style="position:fixed;width:210px;height:861px;top:32px">
     <el-col :span="24">
       <div style="height:61px;background-color:#20252a;position: relative;">
         <img src="../assets/img/logo_bg.png" class='logo' />

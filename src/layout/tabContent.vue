@@ -1,7 +1,7 @@
 <template>
   <div class="main-body">
-    <el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
-      <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name" :closable="item.isClosable === false ? false : true">
+    <el-tabs v-model="editableTabsValue" type="card" @tab-remove="handleTabsEdit">
+      <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name" :closable="item.isClosable !== 1 ? true : false">
       </el-tab-pane>
     </el-tabs>
 
@@ -34,18 +34,16 @@ export default {
       addVisitedTab: 'addVisitedView',
       delVisitedTab: 'delVisitedView'
     }),
-    handleTabsEdit (targetName, action) {
-      if (action === 'remove') {
-        this.delVisitedTab(targetName).then((views) => {
-          if (views.length === 0) {
-            this.$router.push('/');
-          } else {
-            const latestView = views.slice(-1)[0];
-            this.$router.push(latestView.routerPath);
-            this.editableTabsValue = latestView.name;
-          }
-        });
-      }
+    handleTabsEdit (targetName) {
+      this.delVisitedTab(targetName).then((views) => {
+        if (views.length === 0) {
+          this.$router.push('/');
+        } else {
+          const latestView = views.slice(-1)[0];
+          this.$router.push(latestView.routerPath);
+          this.editableTabsValue = latestView.name;
+        }
+      });
     }
   },
   mounted () {

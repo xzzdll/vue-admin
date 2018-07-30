@@ -9,7 +9,7 @@ const tagsView = {
         routerPath: '/',
         title: '首页', // 展示的标题
         name: '0', // tab对应的别名
-        isClosable: false // welcome 页面不支持关闭
+        isClosable: 1 // welcome 页面不支持关闭
       }
     ]
   },

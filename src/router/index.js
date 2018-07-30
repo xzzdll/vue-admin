@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'layout',
+      name: '0',
       component: layout,
       meta: {
         title: '首页',

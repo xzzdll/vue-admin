@@ -3,7 +3,6 @@
 const tagsView = {
   state: {
     visitedViews: [], // 所有正在游览的页面
-    cachedViews: [], // 需要做缓存的页面
     defaultViews: [
       // 数据格式
       {
@@ -30,37 +29,6 @@ const tagsView = {
           break;
         }
       }
-      for (const i of state.cachedViews) {
-        if (i === viewName) {
-          const index = state.cachedViews.indexOf(i);
-          state.cachedViews.splice(index, 1);
-          break;
-        }
-      }
-    },
-    DEL_OTHERS_VIEWS: (state, view) => {
-      if (state.defaultViews.findIndex(n => n.name === view.name) !== -1) {
-        state.visitedViews = [];
-        state.cachedViews = [];
-        return;
-      }
-      for (const [i, v] of state.visitedViews.entries()) {
-        if (v.name === view.name) {
-          state.visitedViews = state.visitedViews.slice(i, i + 1);
-          break;
-        }
-      }
-      for (const i of state.cachedViews) {
-        if (i === view.name) {
-          const index = state.cachedViews.indexOf(i);
-          state.cachedViews = state.cachedViews.slice(index, index + 1);
-          break;
-        }
-      }
-    },
-    DEL_ALL_VIEWS: (state) => {
-      state.visitedViews = [];
-      state.cachedViews = [];
     }
   },
   actions: {
@@ -72,26 +40,11 @@ const tagsView = {
         commit('DEL_VISITED_VIEWS', viewName);
         resolve([...state.visitedViews]);
       });
-    },
-    delOthersViews ({ commit, state }, view) {
-      return new Promise((resolve) => {
-        commit('DEL_OTHERS_VIEWS', view);
-        resolve([...state.visitedViews]);
-      });
-    },
-    delAllViews ({ commit, state }) {
-      return new Promise((resolve) => {
-        commit('DEL_ALL_VIEWS');
-        resolve([...state.visitedViews]);
-      });
     }
   },
   getters: {
     getVisitedViews: state => {
       return state.visitedViews;
-    },
-    getCacheViews: state => {
-      return state.cachedViews;
     },
     getDefaultViews: state => {
       return state.defaultViews;

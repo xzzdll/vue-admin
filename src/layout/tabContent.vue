@@ -32,9 +32,7 @@ export default {
   methods: {
     ...mapActions({
       addVisitedTab: 'addVisitedView',
-      delVisitedTab: 'delVisitedView',
-      delOthersTabs: 'delOthersViews',
-      delAllTabs: 'delAllViews'
+      delVisitedTab: 'delVisitedView'
     }),
     handleTabsEdit (targetName, action) {
       if (action === 'remove') {

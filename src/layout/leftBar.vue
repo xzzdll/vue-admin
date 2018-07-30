@@ -4,7 +4,7 @@
       <div style="height:61px;background-color:#20252a;position: relative;">
         <img src="../assets/img/logo_bg.png" class='logo' />
       </div>
-      <el-menu :default-active= defaultActive class="el-menu-vertical-demo" :router="true" :unique-opened="true" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:861px;border-right:none">
+      <el-menu ref="sideBar" :default-active="defaultActive" class="el-menu-vertical-demo" :router="true" :unique-opened="true" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:861px;border-right:none">
         <el-submenu index="a">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -40,7 +40,11 @@ export default {
   watch: {
     $route () {
       // console.log(this.$route.meta.key) 侧边栏的导航激活受routes中的数据影响
-      this.defaultActive = this.$route.meta.routerPath;
+      if (this.$route.meta.routerPath) { this.defaultActive = this.$route.meta.routerPath; } else {
+        this.defaultActive = this.$route.meta.routerPath;
+        this.$refs['sideBar'].close('a');
+        this.$refs['sideBar'].close('b');
+      }
     }
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="main-body">
     <el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
-      <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name">
+      <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name" :closable="item.isClosable === false ? false : true">
       </el-tab-pane>
     </el-tabs>
 
@@ -11,7 +11,7 @@
 
 <script>
 import waterMack from './waterMack';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
   data () {
     return {
@@ -29,32 +29,15 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      addVisitedTab: 'addVisitedView',
+      delVisitedTab: 'delVisitedView',
+      delOthersTabs: 'delOthersViews',
+      delAllTabs: 'delAllViews'
+    }),
     handleTabsEdit (targetName, action) {
-      if (action === 'add') {
-        // let newTabName = ++this.tabIndex + '';
-        // this.editableTabs.push({
-        //   title: 'New Tab',
-        //   name: newTabName,
-        //   content: 'New Tab content'
-        // });
-        // this.editableTabsValue = newTabName;
-      }
       if (action === 'remove') {
-        // let tabs = this.editableTabs;
-        // let activeName = this.editableTabsValue;
-        // if (activeName === targetName) {
-        //   tabs.forEach((tab, index) => {
-        //     if (tab.name === targetName) {
-        //       let nextTab = tabs[index + 1] || tabs[index - 1];
-        //       if (nextTab) {
-        //         activeName = nextTab.name;
-        //       }
-        //     }
-        //   });
-        // }
-
-        // this.editableTabsValue = activeName;
-        // this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+        this.delVisitedTab(targetName);
       }
     }
   },

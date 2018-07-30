@@ -2,21 +2,7 @@
 // 形如ADD_VISITED_VIEWS的方法默认为不经常改动的方法注意规范 如果需要添加请参考https://vuex.vuejs.org/zh-cn/mutations.html 使用常量替代 Mutation 事件类型
 const tagsView = {
   state: {
-    visitedViews: [{
-      title: '测试导航1',
-      name: '1'
-    }, {
-      title: '测试导航2',
-      name: '2'
-    },
-    {
-      title: '测试导航3',
-      name: '3'
-    },
-    {
-      title: '测试导航4',
-      name: '4'
-    }], // 所有正在游览的页面
+    visitedViews: [], // 所有正在游览的页面
     cachedViews: [], // 需要做缓存的页面
     defaultViews: [
       // 数据格式
@@ -29,17 +15,10 @@ const tagsView = {
   },
   mutations: {
     ADD_VISITED_VIEWS: (state, view) => {
-      if (state.visitedViews.some(v => v.routerPath === view.meta.routerPath) || state.defaultViews.some(v => v.routerPath === view.meta.routerPath)) return;
       state.visitedViews.push({
-        routerPath: view.meta.routerPath,
-        name: view.name,
-        label: view.meta.label || 'no-name',
-        isClosable: view.meta.closable,
-        key: view.meta.key
+        title: view.title,
+        name: view.name
       });
-      if (view.meta.cache) {
-        state.cachedViews.push(view.name);
-      }
     },
     DEL_VISITED_VIEWS: (state, viewName) => {
       for (const [i, v] of state.visitedViews.entries()) {
@@ -83,11 +62,7 @@ const tagsView = {
   },
   actions: {
     addVisitedView ({ commit }, view) {
-      if (view.meta.hideInTab) {
-        commit('ADD_VISITED_VIEWS', view.matched[1]);
-      } else {
-        commit('ADD_VISITED_VIEWS', view);
-      }
+      commit('ADD_VISITED_VIEWS', view);
     },
     delVisitedView ({ commit, state }, viewName) {
       return new Promise((resolve) => {

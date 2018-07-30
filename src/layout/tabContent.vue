@@ -1,6 +1,6 @@
 <template>
   <div class="main-body">
-    <el-tabs v-model="editableTabsValue" type="card" @tab-remove="handleTabsEdit">
+    <el-tabs v-model="editableTabsValue" type="card" @tab-remove="handleTabsEdit" @tab-click="clickTab">
       <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name" :closable="item.isClosable !== 1 ? true : false">
       </el-tab-pane>
     </el-tabs>
@@ -34,6 +34,9 @@ export default {
       addVisitedTab: 'addVisitedView',
       delVisitedTab: 'delVisitedView'
     }),
+    clickTab (tab) {
+      this.$router.push(tab.name);
+    },
     handleTabsEdit (targetName) {
       this.delVisitedTab(targetName).then((views) => {
         if (views.length === 0) {

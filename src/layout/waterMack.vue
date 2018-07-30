@@ -1,42 +1,46 @@
 <template>
   <div class='waterMack'>
     <div class='waterMackContent'>
-      <img v-bind:src=[imgUrl]>
-      <p>John &nbsp; 2018/6/27</p>
+      <!-- <img v-bind:src=[imgUrl]> -->
+      <p>John &nbsp; {{curDate}}</p>
     </div>
     <div class='waterMackContent'>
-      <img v-bind:src=[imgUrl]>
-      <p>John &nbsp; 2018/6/27</p>
+      <!-- <img v-bind:src=[imgUrl]> -->
+      <p>John &nbsp; {{curDate}}</p>
     </div>
     <div class='waterMackContent'>
-      <img v-bind:src=[imgUrl]>
-      <p>John &nbsp; 2018/6/27</p>
+      <!-- <img v-bind:src=[imgUrl]> -->
+      <p>John &nbsp; {{curDate}}</p>
     </div>
     <div class='waterMackContent'>
-      <img v-bind:src=[imgUrl]>
-      <p>John &nbsp; 2018/6/27</p>
+      <!-- <img v-bind:src=[imgUrl]> -->
+      <p>John &nbsp; {{curDate}}</p>
     </div>
     <div class='waterMackContent'>
-      <img v-bind:src=[imgUrl]>
-      <p>John &nbsp; 2018/6/27</p>
+      <!-- <img v-bind:src=[imgUrl]> -->
+      <p>John &nbsp; {{curDate}}</p>
     </div>
     <div class='waterMackContent'>
-      <img v-bind:src=[imgUrl]>
-      <p>John &nbsp; 2018/6/27</p>
+      <!-- <img v-bind:src=[imgUrl]> -->
+      <p>John &nbsp; {{curDate}}</p>
     </div>
     <div class='waterMackContent'>
-      <img v-bind:src=[imgUrl]>
-      <p>John &nbsp; 2018/6/27</p>
+      <!-- <img v-bind:src=[imgUrl]> -->
+      <p>John &nbsp; {{curDate}}</p>
     </div>
   </div>
 </template>
 
 <script>
+import { util } from '@/utils/util';
 export default {
   data () {
     return {
-      imgUrl: 'https://connect.zto.com/oauth2/static/zto-express.c3f90932.png'
+      curDate: ''
     };
+  },
+  created () {
+    this.curDate = util.getCurDateWithOutTimeWeek();
   }
 };
 </script>

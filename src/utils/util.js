@@ -134,6 +134,17 @@ export const util = {
             week.week
     );
   },
+  getCurDateWithOutTimeWeek: function () {
+    var date = this.getCurDate();
+
+    return (
+      date.year +
+            '-' +
+            date.month +
+            '-' +
+            date.day
+    );
+  },
   initDateTime (iStartNum, iEndNum) {
     iStartNum = iStartNum || 0;
     iEndNum = iEndNum || 0;

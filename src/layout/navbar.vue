@@ -3,7 +3,7 @@
     <span class="header-left">{{curDate}} 登陆人：John</span>
     <span class="header-right">
       <a>
-        <i class="fa fa-sign-out" style="font-size: 14px;"></i>
+        <i class="el-icon-setting" style="font-size: 14px;"></i>
         退出
       </a>
     </span>
@@ -36,11 +36,13 @@ export default {
   height: 100%;
   line-height: 32px;
   margin-left: 15px;
+  font-size:13px;
 }
 .header-right {
   float: right;
   height: 100%;
   line-height: 32px;
-  margin-right: 15px;
+  margin-right: 20px;
+  font-size:13px;
 }
 </style>

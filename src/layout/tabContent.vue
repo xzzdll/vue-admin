@@ -1,7 +1,7 @@
 <template>
   <div class="main-body">
     <el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
-      <el-tab-pane :key="item.name" v-for="(item) in editableTabs" :label="item.title" :name="item.name">
+      <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name">
       </el-tab-pane>
     </el-tabs>
 
@@ -11,55 +11,50 @@
 
 <script>
 import waterMack from './waterMack';
+import { mapGetters } from 'vuex';
 export default {
   data () {
     return {
-      editableTabsValue: '2',
-      editableTabs: [{
-        title: '测试导航1',
-        name: '1'
-      }, {
-        title: '测试导航2',
-        name: '2'
-      },
-      {
-        title: '测试导航3',
-        name: '3'
-      },
-      {
-        title: '测试导航4',
-        name: '4'
-      }],
-      tabIndex: 2
+      editableTabsValue: '0',
+      tabIndex: 0
     };
+  },
+  computed: {
+    ...mapGetters({
+      visitedTabs: 'getVisitedViews', // 所有的tabs页面
+      defaultTabs: 'getDefaultViews' // 默认标签为首页
+    }),
+    tabs: function () {
+      return [...this.defaultTabs, ...this.visitedTabs];
+    }
   },
   methods: {
     handleTabsEdit (targetName, action) {
       if (action === 'add') {
-        let newTabName = ++this.tabIndex + '';
-        this.editableTabs.push({
-          title: 'New Tab',
-          name: newTabName,
-          content: 'New Tab content'
-        });
-        this.editableTabsValue = newTabName;
+        // let newTabName = ++this.tabIndex + '';
+        // this.editableTabs.push({
+        //   title: 'New Tab',
+        //   name: newTabName,
+        //   content: 'New Tab content'
+        // });
+        // this.editableTabsValue = newTabName;
       }
       if (action === 'remove') {
-        let tabs = this.editableTabs;
-        let activeName = this.editableTabsValue;
-        if (activeName === targetName) {
-          tabs.forEach((tab, index) => {
-            if (tab.name === targetName) {
-              let nextTab = tabs[index + 1] || tabs[index - 1];
-              if (nextTab) {
-                activeName = nextTab.name;
-              }
-            }
-          });
-        }
+        // let tabs = this.editableTabs;
+        // let activeName = this.editableTabsValue;
+        // if (activeName === targetName) {
+        //   tabs.forEach((tab, index) => {
+        //     if (tab.name === targetName) {
+        //       let nextTab = tabs[index + 1] || tabs[index - 1];
+        //       if (nextTab) {
+        //         activeName = nextTab.name;
+        //       }
+        //     }
+        //   });
+        // }
 
-        this.editableTabsValue = activeName;
-        this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+        // this.editableTabsValue = activeName;
+        // this.editableTabs = tabs.filter(tab => tab.name !== targetName);
       }
     }
   },

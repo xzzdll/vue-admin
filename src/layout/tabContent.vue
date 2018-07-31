@@ -4,9 +4,9 @@
       <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name" :closable="item.isClosable !== 1 ? true : false">
       </el-tab-pane>
     </el-tabs>
-
-    <router-view></router-view>
-
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <water-mack></water-mack>
   </div>
 </template>

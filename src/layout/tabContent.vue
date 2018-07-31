@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import waterMack from './waterMack';
+import waterMack from '../components/waterMack';
 import { mapGetters, mapActions } from 'vuex';
 export default {
   data () {

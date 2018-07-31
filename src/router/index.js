@@ -17,8 +17,9 @@ export default new Router({
           meta: {
             title: '首页',
             routerPath: '0'
-          }
-          // component: layout
+          },
+          component: resolve =>
+            require(['@/views/list/list1.vue'], resolve)
         },
         {
           path: '1',
@@ -26,8 +27,9 @@ export default new Router({
           meta: {
             title: '测试页面1',
             routerPath: '1'
-          }
-          // component: layout
+          },
+          component: resolve =>
+            require(['@/views/list/list2.vue'], resolve)
         },
         {
           path: '2',
@@ -35,8 +37,9 @@ export default new Router({
           meta: {
             title: '测试页面2',
             routerPath: '2'
-          }
-          // component: layout
+          },
+          component: resolve =>
+            require(['@/views/list/list3.vue'], resolve)
         },
         {
           path: '3',
@@ -44,8 +47,9 @@ export default new Router({
           meta: {
             title: '测试页面3',
             routerPath: '3'
-          }
-          // component: layout
+          },
+          component: resolve =>
+            require(['@/views/list/list4.vue'], resolve)
         },
         {
           path: '4',
@@ -53,8 +57,9 @@ export default new Router({
           meta: {
             title: '测试页面4',
             routerPath: '4'
-          }
-          // component: layout
+          },
+          component: resolve =>
+            require(['@/views/list/list5.vue'], resolve)
         }
       ]
     }

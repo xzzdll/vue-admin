@@ -5,6 +5,8 @@
       </el-tab-pane>
     </el-tabs>
 
+    <router-view></router-view>
+
     <water-mack></water-mack>
   </div>
 </template>

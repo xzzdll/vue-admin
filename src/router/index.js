@@ -8,13 +8,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: '0',
+      redirect: '/0',
       component: layout,
-      meta: {
-        title: '首页',
-        routerPath: ''
-      },
       children: [
+        {
+          path: '0',
+          name: '0',
+          meta: {
+            title: '首页',
+            routerPath: '0'
+          }
+          // component: layout
+        },
         {
           path: '1',
           name: '1',

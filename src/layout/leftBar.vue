@@ -1,6 +1,5 @@
 <template>
   <div class="sidebar" :class="{'z-collapse-menu':isCollapse}">
-    <!-- <el-menu ref="sideBar" :default-active="defaultActive" class="el-menu-vertical-demo" :router="true" :unique-opened="true" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:100%;border-right:none" :collapse="isCollapse"> -->
     <h2 class="sidebar-header">
       <img src="../assets/img/logo_bg.png" v-if="!isCollapse" />
       <span v-else>
@@ -99,7 +98,7 @@ export default {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background-color: #181c21;
+    background-color: #20252a;
     line-height: 50px;
     height: 50px;
   }

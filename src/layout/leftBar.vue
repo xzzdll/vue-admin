@@ -31,7 +31,7 @@
       </el-menu>
     </div>
     <div class="sidebar-footer" @click="toggleMenu">
-      <i class="el-icon-location"></i>
+      <i :class="{'el-icon-d-arrow-right':isCollapse,'el-icon-d-arrow-left':!isCollapse}"></i>
     </div>
   </div>
 </template>

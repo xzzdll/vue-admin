@@ -1,10 +1,14 @@
 <template>
-  <el-row class="tac" style="position:fixed;width:210px;height:861px;top:32px">
-    <el-col :span="24">
-      <div style="height:61px;background-color:#20252a;position: relative;">
-        <img src="../assets/img/logo_bg.png" class='logo' />
-      </div>
-      <el-menu ref="sideBar" :default-active="defaultActive" class="el-menu-vertical-demo" :router="true" :unique-opened="true" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:861px;border-right:none">
+  <div class="sidebar" :class="{'z-collapse-menu':isCollapse}">
+    <!-- <el-menu ref="sideBar" :default-active="defaultActive" class="el-menu-vertical-demo" :router="true" :unique-opened="true" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="height:100%;border-right:none" :collapse="isCollapse"> -->
+    <h2 class="sidebar-header">
+      <img src="../assets/img/logo_bg.png" v-if="!isCollapse" />
+      <span v-else>
+        <i class="el-icon-location"></i>
+      </span>
+    </h2>
+    <div class="sidebar-body">
+      <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="border-right:none">
         <el-submenu index="a">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -26,39 +30,103 @@
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
-    </el-col>
-  </el-row>
+    </div>
+    <div class="sidebar-footer" @click="toggleMenu">
+      <i class="el-icon-location"></i>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   data () {
     return {
+      isCollapse: false,
       defaultActive: '' // 默认激活的导航
     };
   },
   watch: {
     $route () {
       // console.log(this.$route.meta.key) 侧边栏的导航激活受routes中的数据影响
-      if (this.$route.meta.routerPath) { this.defaultActive = this.$route.meta.routerPath; } else {
-        this.defaultActive = this.$route.meta.routerPath;
-        this.$refs['sideBar'].close('a');
-        this.$refs['sideBar'].close('b');
-      }
+      this.defaultActive = this.$route.meta.routerPath;
+    }
+  },
+  methods: {
+    toggleMenu () {
+      this.isCollapse = !this.isCollapse;
+      this.$emit('collapse', this.isCollapse);
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
-li {
-  text-align: left;
+<style>
+.sidebar .el-submenu__title {
+  padding: 0 5px !important;
+  padding: 0;
+  margin-right: 0;
 }
 
-.logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.sidebar .el-menu--collapse {
+  width: 40px !important;
+}
+</style>
+
+<style lang="scss" scoped>
+.sidebar {
+  color: #fff;
+  width: 208px;
+  position: fixed;
+  top: 32px;
+  height: calc(100% - 32px);
+  -webkit-transition: width 0.28s linear 0s;
+  transition: width 0.28s linear 0s;
+  transition-property: width;
+  transition-duration: 0.28s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  z-index: 100;
+
+  .sidebar-header {
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #181c21;
+    line-height: 50px;
+    height: 50px;
+  }
+
+  .sidebar-body {
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    bottom: 35px;
+    background-color: #20252a;
+  }
+
+  .sidebar-footer {
+    height: 35px;
+    line-height: 35px;
+    background: #3a8eff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.4rem;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+  }
+}
+
+.z-collapse-menu {
+  width: 40px !important;
 }
 </style>

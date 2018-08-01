@@ -75,7 +75,6 @@ export default {
   position: fixed;
   width: calc(100% - 200px);
   min-width: 800px;
-  left: 200px;
   top: 32px;
   padding: 20px;
   padding-top: 0px;

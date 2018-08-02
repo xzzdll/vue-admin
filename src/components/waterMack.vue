@@ -1,6 +1,6 @@
 <template>
   <div class='waterMack'>
-    <div class='waterMackContent' :v-for="item in 20">
+    <div class='waterMackContent' v-for="index in items" :key="index">
       <p>John &nbsp; {{curDate}}</p>
     </div>
   </div>
@@ -11,7 +11,8 @@ import { util } from '@/utils/util';
 export default {
   data () {
     return {
-      curDate: ''
+      curDate: '',
+      items: 20
     };
   },
   created () {

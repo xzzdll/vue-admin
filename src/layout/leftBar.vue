@@ -7,7 +7,7 @@
       </span>
     </h2>
     <div class="sidebar-body">
-      <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="border-right:none" router unique-opened="true">
+      <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="border-right:none" router :unique-opened="true">
         <el-submenu index="a">
           <template slot="title">
             <i class="el-icon-location"></i>

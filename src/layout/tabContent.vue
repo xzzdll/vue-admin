@@ -1,6 +1,6 @@
 <template>
   <div class="main-body">
-    <el-tabs v-model="editableTabsValue" type="card" @tab-remove="handleTabsEdit" @tab-click="clickTab">
+    <el-tabs v-model="editableTabsValue" type="card" @tab-remove="handleTabsEdit" @tab-click="clickTab" style="width:100%">
       <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name" :closable="item.isClosable !== 1 ? true : false">
       </el-tab-pane>
     </el-tabs>
@@ -73,7 +73,7 @@ export default {
   height: 800px;
   margin: auto 0;
   position: fixed;
-  width: calc(100% - 200px);
+  width: calc(100% - 230px);
   min-width: 800px;
   top: 32px;
   padding: 20px;

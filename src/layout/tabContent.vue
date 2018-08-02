@@ -1,7 +1,7 @@
 <template>
-  <div class="main-body">
+  <div class="main-body" :style="{'width':width}">
     <el-tabs v-model="editableTabsValue" type="card" @tab-remove="handleTabsEdit" @tab-click="clickTab" style="width:100%">
-      <el-tab-pane :key="item.name" v-for="(item) in tabs" :label="item.title" :name="item.name" :closable="item.isClosable !== 1 ? true : false">
+      <el-tab-pane :key="index" v-for="(item,index) in tabs" :label="item.title" :name="item.name" :closable="item.isClosable !== 1 ? true : false">
       </el-tab-pane>
     </el-tabs>
     <keep-alive>
@@ -17,11 +17,10 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   data () {
     return {
-      editableTabsValue: '0',
-      tabIndex: 0,
-      slectedTag: {}
+      editableTabsValue: '0'
     };
   },
+  props: ['width'],
   computed: {
     ...mapGetters({
       visitedTabs: 'getVisitedViews', // 所有的tabs页面
@@ -73,7 +72,6 @@ export default {
   height: 800px;
   margin: auto 0;
   position: fixed;
-  width: calc(100% - 230px);
   min-width: 800px;
   top: 32px;
   padding: 20px;

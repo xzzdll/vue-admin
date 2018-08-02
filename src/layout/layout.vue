@@ -6,7 +6,7 @@
     <navbar></navbar>
     <!--主要内容-->
     <div class="transiton" :style="{'margin-left':marginLeft}">
-      <tabContent>
+      <tabContent :width="width">
       </tabContent>
     </div>
   </div>
@@ -25,6 +25,7 @@ export default {
   },
   data () {
     return {
+      width: 'calc(100% - 230px)',
       marginLeft: '200px',
       shadowStatus: false
     };
@@ -33,8 +34,10 @@ export default {
     handCollapse (isCollapse) {
       if (isCollapse) {
         this.marginLeft = '40px';
+        this.width = 'calc(100% - 70px)';
       } else {
         this.marginLeft = '200px';
+        this.width = 'calc(100% - 230px)';
       }
     }
   }

@@ -60,6 +60,46 @@ export default new Router({
           },
           component: resolve =>
             require(['@/views/list/list5.vue'], resolve)
+        },
+        {
+          path: '5',
+          name: '5',
+          meta: {
+            title: '测试页面5',
+            routerPath: '5'
+          },
+          component: resolve =>
+            require(['@/views/list/list6.vue'], resolve)
+        },
+        {
+          path: '6',
+          name: '6',
+          meta: {
+            title: '测试页面6',
+            routerPath: '6'
+          },
+          component: resolve =>
+            require(['@/views/list/list7.vue'], resolve)
+        },
+        {
+          path: '7',
+          name: '7',
+          meta: {
+            title: '测试页面7',
+            routerPath: '7'
+          },
+          component: resolve =>
+            require(['@/views/list/list8.vue'], resolve)
+        },
+        {
+          path: '8',
+          name: '8',
+          meta: {
+            title: '测试页面8',
+            routerPath: '8'
+          },
+          component: resolve =>
+            require(['@/views/list/list9.vue'], resolve)
         }
       ]
     }

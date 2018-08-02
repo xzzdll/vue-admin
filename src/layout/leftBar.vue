@@ -7,7 +7,7 @@
       </span>
     </h2>
     <div class="sidebar-body">
-      <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="border-right:none" router>
+      <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="border-right:none" router unique-opened="true">
         <el-submenu index="a">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -26,6 +26,26 @@
           <el-menu-item-group>
             <el-menu-item index="3">选项1</el-menu-item>
             <el-menu-item index="4">选项2</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="c">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航三</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="5">选项1</el-menu-item>
+            <el-menu-item index="6">选项2</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="d">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航四</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="7">选项1</el-menu-item>
+            <el-menu-item index="8">选项2</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>

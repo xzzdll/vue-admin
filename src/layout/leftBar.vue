@@ -48,6 +48,26 @@
             <el-menu-item index="8">选项2</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
+        <el-submenu index="e">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航五</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="9">选项1</el-menu-item>
+            <el-menu-item index="10">选项2</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="f">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航六</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="11">选项1</el-menu-item>
+            <el-menu-item index="12">选项2</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
       </el-menu>
     </div>
     <div class="sidebar-footer" @click="toggleMenu">

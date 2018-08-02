@@ -100,6 +100,46 @@ export default new Router({
           },
           component: resolve =>
             require(['@/views/list/list9.vue'], resolve)
+        },
+        {
+          path: '9',
+          name: '9',
+          meta: {
+            title: '测试页面9',
+            routerPath: '9'
+          },
+          component: resolve =>
+            require(['@/views/list/list10.vue'], resolve)
+        },
+        {
+          path: '10',
+          name: '10',
+          meta: {
+            title: '测试页面10',
+            routerPath: '10'
+          },
+          component: resolve =>
+            require(['@/views/list/list11.vue'], resolve)
+        },
+        {
+          path: '11',
+          name: '11',
+          meta: {
+            title: '测试页面11',
+            routerPath: '11'
+          },
+          component: resolve =>
+            require(['@/views/list/list12.vue'], resolve)
+        },
+        {
+          path: '12',
+          name: '12',
+          meta: {
+            title: '测试页面12',
+            routerPath: '12'
+          },
+          component: resolve =>
+            require(['@/views/list/list13.vue'], resolve)
         }
       ]
     }

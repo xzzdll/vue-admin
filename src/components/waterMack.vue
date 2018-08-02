@@ -1,31 +1,6 @@
 <template>
   <div class='waterMack'>
-    <div class='waterMackContent'>
-      <!-- <img v-bind:src=[imgUrl]> -->
-      <p>John &nbsp; {{curDate}}</p>
-    </div>
-    <div class='waterMackContent'>
-      <!-- <img v-bind:src=[imgUrl]> -->
-      <p>John &nbsp; {{curDate}}</p>
-    </div>
-    <div class='waterMackContent'>
-      <!-- <img v-bind:src=[imgUrl]> -->
-      <p>John &nbsp; {{curDate}}</p>
-    </div>
-    <div class='waterMackContent'>
-      <!-- <img v-bind:src=[imgUrl]> -->
-      <p>John &nbsp; {{curDate}}</p>
-    </div>
-    <div class='waterMackContent'>
-      <!-- <img v-bind:src=[imgUrl]> -->
-      <p>John &nbsp; {{curDate}}</p>
-    </div>
-    <div class='waterMackContent'>
-      <!-- <img v-bind:src=[imgUrl]> -->
-      <p>John &nbsp; {{curDate}}</p>
-    </div>
-    <div class='waterMackContent'>
-      <!-- <img v-bind:src=[imgUrl]> -->
+    <div class='waterMackContent' :v-for="item in 20">
       <p>John &nbsp; {{curDate}}</p>
     </div>
   </div>
@@ -62,7 +37,7 @@ export default {
 .waterMackContent {
   float: left;
   padding-top: 90px;
-  width: 300px;
+  width: 250px;
   height: 180px;
   transform: rotate(-30deg);
   margin: 50px 47.666666666666664px;

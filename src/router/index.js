@@ -19,7 +19,7 @@ export default new Router({
             routerPath: 'index'
           },
           component: resolve =>
-            require(['@/views/list/list1.vue'], resolve)
+            require(['@/views/list/index.vue'], resolve)
         },
         {
           path: '1',

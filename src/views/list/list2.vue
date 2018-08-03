@@ -10,6 +10,8 @@
           <el-table-column prop="address" label="地址" min-width="150" align="center">
           </el-table-column>
         </el-table>
+        <el-pagination @size-change="handleSizeChange" class="z-pagination" :current-page.sync="currentPage" :page-size="pageSize" layout="sizes, prev, pager, next, jumper,total" :total="totalRows">
+        </el-pagination>
       </el-main>
     </el-container>
   </el-container>
@@ -18,14 +20,26 @@
 <script>
 export default {
   data () {
-    const item = {
-      date: '2016-05-02',
-      name: '王小虎',
-      address: '上海市普陀区金沙江路 1518 弄'
-    };
     return {
-      tableData: Array(20).fill(item)
+      item: {
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      },
+      totalRows: 60,
+      currentPage: 1,
+      pageSize: 20
     };
+  },
+  computed: {
+    tableData: function () {
+      return Array(this.pageSize).fill(this.item);
+    }
+  },
+  methods: {
+    handleSizeChange (val) {
+      this.pageSize = val;
+    }
   }
 };
 </script>

@@ -36,9 +36,9 @@ export default {
     }
   },
   created () {
-    this.pageHeight = (document.documentElement.clientHeight - 56) + 'px';
+    this.pageHeight = (document.documentElement.clientHeight - 88) + 'px';
     window.addEventListener('resize', () => {
-      this.pageHeight = (document.documentElement.clientHeight - 56) + 'px';
+      this.pageHeight = (document.documentElement.clientHeight - 88) + 'px';
     }, false);
   },
   methods: {

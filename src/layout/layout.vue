@@ -25,19 +25,19 @@ export default {
   },
   data () {
     return {
-      width: 'calc(100% - 230px)',
-      marginLeft: '200px',
+      width: 'calc(100% - 208px)',
+      marginLeft: '208px',
       shadowStatus: false
     };
   },
   methods: {
     handCollapse (isCollapse) {
       if (isCollapse) {
-        this.marginLeft = '40px';
-        this.width = 'calc(100% - 70px)';
+        this.marginLeft = '48px';
+        this.width = 'calc(100% - 48px)';
       } else {
-        this.marginLeft = '200px';
-        this.width = 'calc(100% - 230px)';
+        this.marginLeft = '208px';
+        this.width = 'calc(100% - 208px)';
       }
     }
   }

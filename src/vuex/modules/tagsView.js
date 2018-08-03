@@ -6,9 +6,9 @@ const tagsView = {
     defaultViews: [
       // 数据格式
       {
-        routerPath: '/',
+        routerPath: '/index',
         title: '首页', // 展示的标题
-        name: '0', // tab对应的别名
+        name: 'index', // tab对应的别名
         isClosable: 1 // welcome 页面不支持关闭
       }
     ]

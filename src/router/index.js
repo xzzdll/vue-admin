@@ -8,15 +8,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/0',
+      redirect: '/index',
       component: layout,
       children: [
         {
-          path: '0',
-          name: '0',
+          path: 'index',
+          name: 'index',
           meta: {
             title: '首页',
-            routerPath: '0'
+            routerPath: 'index'
           },
           component: resolve =>
             require(['@/views/list/list1.vue'], resolve)

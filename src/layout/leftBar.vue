@@ -7,7 +7,7 @@
       </span>
     </h2>
     <div class="sidebar-body">
-      <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="border-right:none" router :unique-opened="true">
+      <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20252a" text-color="#fff" active-text-color="#ffd04b" style="border-right:none" router>
         <el-submenu index="a">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -143,8 +143,25 @@ export default {
     height: 50px;
   }
 
+  ::-webkit-scrollbar {
+    position: absolute;
+    width: 10px;
+    margin-left: -10px;
+    -webkit-appearance: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #151b1f;
+    background-clip: content-box;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 1px 2px;
+  }
+
   .sidebar-body {
     overflow: auto;
+    overflow-x: hidden;
     position: absolute;
     width: 100%;
     top: 50px;

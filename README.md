@@ -1,4 +1,4 @@
-# Vue全家桶脚手架
+# 基于Vue全家桶的后台管理系统脚手架
 
 > A Vue.js project
 

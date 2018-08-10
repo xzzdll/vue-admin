@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span>测试3</span>
+        <span>测试2</span>
     </div>
 </template>
 

@@ -12,14 +12,16 @@
         <el-col :span="12" :offset="9">
           <div>
             <span class="app-contact-title">出现状况，请联系:</span>
-            <span class="app-contact-p"><i class="fa fa-qq" aria-hidden="true"></i>&nbsp;QQ:{{userInfo.qq}}</span>
+            <span class="app-contact-p">
+              <i class="fa fa-qq" aria-hidden="true"></i>&nbsp;QQ:{{userInfo.qq}}</span>
           </div>
         </el-col>
       </el-row>
     </div>
     <div class="app-info">
       <div class="app-info-header">
-        <span class="title"><i class="fa fa-volume-up" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;最新公告：</span>
+        <span class="title">
+          <i class="fa fa-volume-up" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;最新公告：</span>
       </div>
       <div class="app-info-content">
         <div></div>
@@ -27,7 +29,8 @@
     </div>
     <div class="app-doc">
       <div class="app-doc-header">
-        <span class="title"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;常见文档：</span>
+        <span class="title">
+          <i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;常见文档：</span>
       </div>
       <div class="app-doc-content">
         <div class="app-doc-content-padding">
@@ -35,7 +38,7 @@
             <el-col v-for="(item) in docArray" :key="item.id" :span="6">
               <div class="app-doc-item clearboth">
                 <div class="app-doc-item-left FL">
-                  <span><img :src="lntroduce[`${item.type}`]"  style="width:42px;height:56px;"></span>
+                  <span><img :src="lntroduce[`${item.type}`]" style="width:42px;height:56px;"></span>
                 </div>
                 <div class="app-doc-item-right FR">
                   <div class="doc-name">{{item.name}}</div>
@@ -48,7 +51,7 @@
       </div>
     </div>
     <div class="app-footer">
-      <div class="app-footer-pic"><img src="../../assets/welcome/banner.png"  height="100%" /></div>
+      <div class="app-footer-pic"><img src="../../assets/welcome/banner.png" height="100%" /></div>
       <div class="app-footer-copyRight">MADE BY JOHN</div>
     </div>
   </div>
@@ -58,6 +61,7 @@ import welcomeBg from '../../assets/welcome/Ba.png';
 import iconDoc from '../../assets/welcome/doc.png';
 import iconExcel from '../../assets/welcome/exc.png';
 import iconPdf from '../../assets/welcome/pdf.png';
+import fetch from '../../fetch/api';
 export default {
   data () {
     return {
@@ -113,17 +117,21 @@ export default {
   },
   methods: {
     downloadDoc (item) {
-      this.$alert(`此功能未开通`).then(() => {}, () => {});
+      this.$alert(`此功能未开通`).then(() => { }, () => { });
     }
   },
   mounted () {
-
+    // fetch('login', { userName: 'john', passWord: '1605' });
+    // fetch('/artical/delete', { id: '5b6cf9c374aaf83d24340386' });
+    // fetch('/artical/edit', { id: '5b6cf9c174aaf83d24340385', content: '测试啊啊啊' });
+    // fetch('/artical/create', { title: '测试标题', content: '测试啊啊啊' });
+    // fetch('/artical/list');
   }
 };
 
 </script>
 <style lang="scss" scoped>
-$bannerDiscriptionColor:#fff;
+$bannerDiscriptionColor: #fff;
 .app-welcome {
   .app-footer {
     height: 180px;
@@ -136,7 +144,7 @@ $bannerDiscriptionColor:#fff;
       text-align: center;
       width: 100%;
       color: #a2a2a2;
-      background-color: rgba(0, 0, 0, .7);
+      background-color: rgba(0, 0, 0, 0.7);
     }
     .app-footer-pic {
       text-align: center;
@@ -170,7 +178,6 @@ $bannerDiscriptionColor:#fff;
       .app-doc-content-padding {
         .app-doc-item {
           box-shadow: -3px 10px 10px #dee1ea;
-          ;
           margin-bottom: 15px;
           text-align: center;
           .app-doc-item-left {
@@ -291,5 +298,4 @@ $bannerDiscriptionColor:#fff;
     }
   }
 }
-
 </style>

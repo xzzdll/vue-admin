@@ -121,7 +121,7 @@ export default {
     }
   },
   mounted () {
-    // fetch('login', { userName: 'john', passWord: '1605' });
+    fetch('login', { userName: 'john', passWord: '1605' });
     // fetch('/artical/delete', { id: '5b6cf9c374aaf83d24340386' });
     // fetch('/artical/edit', { id: '5b6cf9c174aaf83d24340385', content: '测试啊啊啊' });
     // fetch('/artical/create', { title: '测试标题', content: '测试啊啊啊' });

@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import layout from '@/layout/layout';
 
 Vue.use(Router);
 
@@ -9,7 +8,8 @@ export default new Router({
     {
       path: '/',
       redirect: '/index',
-      component: layout,
+      component: resolve =>
+        require(['@/layout/layout'], resolve),
       children: [
         {
           path: 'index',
@@ -80,68 +80,13 @@ export default new Router({
           },
           component: resolve =>
             require(['@/views/list/list7.vue'], resolve)
-        },
-        {
-          path: '7',
-          name: '7',
-          meta: {
-            title: '测试页面7',
-            routerPath: '7'
-          },
-          component: resolve =>
-            require(['@/views/list/list8.vue'], resolve)
-        },
-        {
-          path: '8',
-          name: '8',
-          meta: {
-            title: '测试页面8',
-            routerPath: '8'
-          },
-          component: resolve =>
-            require(['@/views/list/list9.vue'], resolve)
-        },
-        {
-          path: '9',
-          name: '9',
-          meta: {
-            title: '测试页面9',
-            routerPath: '9'
-          },
-          component: resolve =>
-            require(['@/views/list/list10.vue'], resolve)
-        },
-        {
-          path: '10',
-          name: '10',
-          meta: {
-            title: '测试页面10',
-            routerPath: '10'
-          },
-          component: resolve =>
-            require(['@/views/list/list11.vue'], resolve)
-        },
-        {
-          path: '11',
-          name: '11',
-          meta: {
-            title: '测试页面11',
-            routerPath: '11'
-          },
-          component: resolve =>
-            require(['@/views/list/list12.vue'], resolve)
-        },
-        {
-          path: '12',
-          name: '12',
-          meta: {
-            title: '测试页面12',
-            routerPath: '12'
-          },
-          component: resolve =>
-            require(['@/views/list/list13.vue'], resolve)
         }
       ]
+    },
+    {
+      path: '/login',
+      component: resolve =>
+        require(['@/views/common/login'], resolve)
     }
   ]
 });

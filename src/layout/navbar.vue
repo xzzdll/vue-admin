@@ -21,13 +21,21 @@ export default {
   methods: {
     handleSelect (key, keyPath) { },
     logOut () {
-      this.$router.push('/login');
       var keys = document.cookie.match(/[^ =;]+(?=\\=)/g);
       if (keys) {
         for (var i = keys.length; i--;) {
           document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString();
         }
       }
+      let loading = this.$loading({
+        lock: true,
+        text: 'Loading...',
+        background: 'rgba(0, 0, 0, 0.6)'
+      });
+      setTimeout(() => {
+        loading.close();
+        this.$router.push('/login');
+      }, 1000);
     }
   },
   created () {

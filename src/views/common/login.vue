@@ -34,6 +34,13 @@ export default {
       fetch('login', { userName: this.ruleForm2.user, passWord: this.ruleForm2.pass }).then((data) => {
         if (data.status === 'true') {
           console.log(data.message);
+          this.$router.push('/');
+          this.$message({
+            message: data.message,
+            type: 'success'
+          });
+        } else {
+          this.$message.error(data.message);
         }
       });
     },

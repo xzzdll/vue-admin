@@ -2,7 +2,6 @@
   <div>
     <el-form :model="ruleForm2" status-icon ref="ruleForm2" label-width="50px" class="demo-ruleForm">
       <el-form-item align="center">
-        <img src="../../assets/img/logo_bg.png" />
         <h1>DarkNight后台管理系统</h1>
       </el-form-item>
       <el-form-item label="账号" prop="user" align="center">

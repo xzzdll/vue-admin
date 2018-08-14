@@ -21,6 +21,7 @@ export default {
   methods: {
     handleSelect (key, keyPath) { },
     logOut () {
+      this.$store.commit('CHANGE_LOGIN_STATE', 0);
       var keys = document.cookie.match(/[^ =;]+(?=\\=)/g);
       if (keys) {
         for (var i = keys.length; i--;) {

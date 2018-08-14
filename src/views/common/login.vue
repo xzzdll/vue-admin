@@ -32,7 +32,7 @@ export default {
     submitForm () {
       fetch('login', { userName: this.ruleForm2.user, passWord: this.ruleForm2.pass }).then((data) => {
         if (data.status === 'true') {
-          this.$store.commit('changeLogin', '1');
+          this.$store.commit('CHANGE_LOGIN_STATE', 1);
           this.$router.push('/');
           this.$message({
             message: data.message,

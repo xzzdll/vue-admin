@@ -30,7 +30,7 @@ const router = new Router({
             routerPath: '1'
           },
           component: resolve =>
-            require(['@/views/list/list2.vue'], resolve)
+            require(['@/views/list/articalList.vue'], resolve)
         },
         {
           path: '2',
@@ -40,7 +40,7 @@ const router = new Router({
             routerPath: '2'
           },
           component: resolve =>
-            require(['@/views/list/list3.vue'], resolve)
+            require(['@/views/list/newAtical.vue'], resolve)
         },
         {
           path: '3',
@@ -50,7 +50,7 @@ const router = new Router({
             routerPath: '3'
           },
           component: resolve =>
-            require(['@/views/list/list4.vue'], resolve)
+            require(['@/views/list/accessStatistics.vue'], resolve)
         },
         {
           path: '4',
@@ -60,7 +60,7 @@ const router = new Router({
             routerPath: '4'
           },
           component: resolve =>
-            require(['@/views/list/list5.vue'], resolve)
+            require(['@/views/list/articalAccessStatistics.vue'], resolve)
         },
         {
           path: '5',
@@ -70,7 +70,7 @@ const router = new Router({
             routerPath: '5'
           },
           component: resolve =>
-            require(['@/views/list/list6.vue'], resolve)
+            require(['@/views/list/userList.vue'], resolve)
         },
         {
           path: '6',
@@ -80,7 +80,7 @@ const router = new Router({
             routerPath: '6'
           },
           component: resolve =>
-            require(['@/views/list/list7.vue'], resolve)
+            require(['@/views/list/newUser.vue'], resolve)
         }
       ]
     },

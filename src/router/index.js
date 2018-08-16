@@ -23,61 +23,61 @@ const router = new Router({
             require(['@/views/list/index.vue'], resolve)
         },
         {
-          path: '1',
-          name: '1',
+          path: 'articalList',
+          name: 'articalList',
           meta: {
             title: '文章列表',
-            routerPath: '1'
+            routerPath: 'articalList'
           },
           component: resolve =>
             require(['@/views/list/articalList.vue'], resolve)
         },
         {
-          path: '2',
-          name: '2',
+          path: 'newAtical',
+          name: 'newAtical',
           meta: {
             title: '新文章',
-            routerPath: '2'
+            routerPath: 'newAtical'
           },
           component: resolve =>
             require(['@/views/list/newAtical.vue'], resolve)
         },
         {
-          path: '3',
-          name: '3',
+          path: 'accessStatistics',
+          name: 'accessStatistics',
           meta: {
             title: '访问统计',
-            routerPath: '3'
+            routerPath: 'accessStatistics'
           },
           component: resolve =>
             require(['@/views/list/accessStatistics.vue'], resolve)
         },
         {
-          path: '4',
-          name: '4',
+          path: 'articalAccessStatistics',
+          name: 'articalAccessStatistics',
           meta: {
             title: '文章列表访问统计',
-            routerPath: '4'
+            routerPath: 'articalAccessStatistics'
           },
           component: resolve =>
             require(['@/views/list/articalAccessStatistics.vue'], resolve)
         },
         {
-          path: '5',
-          name: '5',
+          path: 'userList',
+          name: 'userList',
           meta: {
             title: '用户列表',
-            routerPath: '5'
+            routerPath: 'userList'
           },
           component: resolve =>
             require(['@/views/list/userList.vue'], resolve)
         },
         {
-          path: '6',
-          name: '6',
+          path: 'newUser',
+          name: 'newUser',
           meta: {
             title: '新建用户',
-            routerPath: '6'
+            routerPath: 'newUser'
           },
           component: resolve =>
             require(['@/views/list/newUser.vue'], resolve)

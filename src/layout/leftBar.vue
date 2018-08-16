@@ -14,8 +14,8 @@
             <span>文章管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="1">文章列表</el-menu-item>
-            <el-menu-item index="2">新文章</el-menu-item>
+            <el-menu-item index="articalList">文章列表</el-menu-item>
+            <el-menu-item index="newAtical">新文章</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="b">
@@ -24,8 +24,8 @@
             <span>数据统计</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="3">访问统计</el-menu-item>
-            <el-menu-item index="4">文章列表访问统计</el-menu-item>
+            <el-menu-item index="accessStatistics">访问统计</el-menu-item>
+            <el-menu-item index="articalAccessStatistics">文章列表访问统计</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="c">
@@ -34,8 +34,8 @@
             <span>用户管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="5">用户列表</el-menu-item>
-            <el-menu-item index="6">新建用户</el-menu-item>
+            <el-menu-item index="userList">用户列表</el-menu-item>
+            <el-menu-item index="newUser">新建用户</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>

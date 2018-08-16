@@ -26,7 +26,7 @@ const router = new Router({
           path: '1',
           name: '1',
           meta: {
-            title: '测试页面1',
+            title: '文章列表',
             routerPath: '1'
           },
           component: resolve =>
@@ -36,7 +36,7 @@ const router = new Router({
           path: '2',
           name: '2',
           meta: {
-            title: '测试页面2',
+            title: '新文章',
             routerPath: '2'
           },
           component: resolve =>
@@ -46,7 +46,7 @@ const router = new Router({
           path: '3',
           name: '3',
           meta: {
-            title: '测试页面3',
+            title: '访问统计',
             routerPath: '3'
           },
           component: resolve =>
@@ -56,7 +56,7 @@ const router = new Router({
           path: '4',
           name: '4',
           meta: {
-            title: '测试页面4',
+            title: '文章列表访问统计',
             routerPath: '4'
           },
           component: resolve =>
@@ -66,7 +66,7 @@ const router = new Router({
           path: '5',
           name: '5',
           meta: {
-            title: '测试页面5',
+            title: '用户列表',
             routerPath: '5'
           },
           component: resolve =>
@@ -76,7 +76,7 @@ const router = new Router({
           path: '6',
           name: '6',
           meta: {
-            title: '测试页面6',
+            title: '新建用户',
             routerPath: '6'
           },
           component: resolve =>

@@ -5,7 +5,7 @@
       </el-tab-pane>
     </el-tabs>
     <div style="height:15px"></div>
-    <div style="margin-left:10px;overflow: auto;overflow-x: hidden;position:relative;background-color: white" :style="{width:pageWidth,height:pageHeight}">
+    <div style="margin-left:15px;overflow: auto;overflow-x: hidden;position:relative;background-color: white" :style="{width:pageWidth,height:pageHeight}">
       <keep-alive>
         <router-view></router-view>
       </keep-alive>

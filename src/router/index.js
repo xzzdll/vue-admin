@@ -40,7 +40,17 @@ const router = new Router({
             routerPath: 'newAtical'
           },
           component: resolve =>
-            require(['@/views/list/newAtical.vue'], resolve)
+            require(['@/views/list/newArtical.vue'], resolve)
+        },
+        {
+          path: 'editAtical',
+          name: 'editAtical',
+          meta: {
+            title: '编辑文章',
+            routerPath: 'editAtical'
+          },
+          component: resolve =>
+            require(['@/views/list/editArtical.vue'], resolve)
         },
         {
           path: 'accessStatistics',

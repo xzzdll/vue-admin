@@ -26,7 +26,7 @@
     <el-footer>
       <el-form>
         <el-form-item>
-          <el-button type="primary" @click="onSubmit">立即创建</el-button>
+          <el-button type="primary" @click="onSubmit">立即保存</el-button>
           <el-button>取消</el-button>
         </el-form-item>
       </el-form>
@@ -66,6 +66,20 @@ export default {
           this.$message.error(data.message);
         }
       });
+    }
+  },
+  activated () {
+    if (this.$route.query.id) {
+      this.$message({
+        message: '请编辑文章',
+        type: 'success'
+      });
+    } else {
+      this.$message({
+        message: '请选择要编辑的文章',
+        type: 'success'
+      });
+      // this.$router.push('/articalList');
     }
   }
 };

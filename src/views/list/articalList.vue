@@ -61,6 +61,20 @@ export default {
         });
       });
     },
+    handleEditClick (val) {
+      this.$router.push({ path: '/editArtical', query: { id: val } });
+      // fetch('artical/edit', { id: val }).then((data) => {
+      //   if (data.status === 'true') {
+      //     this.$message({
+      //       message: data.message,
+      //       type: 'success'
+      //     });
+      //     this.updateData();
+      //   } else {
+      //     this.$message.error(data.message);
+      //   }
+      // });
+    },
     updateData () {
       fetch('artical/list').then((data) => {
         if (data.status === 'true') {

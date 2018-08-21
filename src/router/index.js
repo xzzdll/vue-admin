@@ -33,21 +33,21 @@ const router = new Router({
             require(['@/views/list/articalList.vue'], resolve)
         },
         {
-          path: 'newAtical',
-          name: 'newAtical',
+          path: 'newArtical',
+          name: 'newArtical',
           meta: {
             title: '新文章',
-            routerPath: 'newAtical'
+            routerPath: 'newArtical'
           },
           component: resolve =>
             require(['@/views/list/newArtical.vue'], resolve)
         },
         {
-          path: 'editAtical',
-          name: 'editAtical',
+          path: 'editArtical',
+          name: 'editArtical',
           meta: {
             title: '编辑文章',
-            routerPath: 'editAtical'
+            routerPath: 'editArtical'
           },
           component: resolve =>
             require(['@/views/list/editArtical.vue'], resolve)

@@ -15,8 +15,8 @@
           </template>
           <el-menu-item-group>
             <el-menu-item index="articalList">文章列表</el-menu-item>
-            <el-menu-item index="newAtical">新文章</el-menu-item>
-            <el-menu-item index="editAtical">编辑文章</el-menu-item>
+            <el-menu-item index="newArtical">新文章</el-menu-item>
+            <el-menu-item index="editArtical">编辑文章</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-submenu index="b">

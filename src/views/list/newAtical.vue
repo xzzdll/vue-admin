@@ -61,6 +61,7 @@ export default {
             tag: null,
             content: null
           };
+          this.$router.push('/articalList');
         } else {
           this.$message.error(data.message);
         }

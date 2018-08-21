@@ -34,6 +34,7 @@
   </el-container>
 </template>
 <script>
+import fetch from '../../fetch/api';
 export default {
   data () {
     return {
@@ -48,7 +49,22 @@ export default {
   },
   methods: {
     onSubmit () {
-      console.log('submit!');
+      fetch('artical/create', this.formInline).then((data) => {
+        if (data.status === 'true') {
+          this.$message({
+            message: data.message,
+            type: 'success'
+          });
+          this.formInline = {
+            title: null,
+            type: null,
+            tag: null,
+            content: null
+          };
+        } else {
+          this.$message.error(data.message);
+        }
+      });
     }
   }
 };

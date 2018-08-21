@@ -35,6 +35,7 @@
 </template>
 <script>
 import fetch from '../../fetch/api';
+import { mapActions } from 'vuex';
 export default {
   data () {
     return {
@@ -48,6 +49,9 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      delVisitedTab: 'delVisitedView'
+    }),
     onSubmit () {
       fetch('artical/create', this.formInline).then((data) => {
         if (data.status === 'true') {
@@ -69,17 +73,24 @@ export default {
     }
   },
   activated () {
+    let loading = this.$loading({
+      lock: true,
+      text: 'Loading...',
+      background: 'rgba(0, 0, 0, 0.6)'
+    });
     if (this.$route.query.id) {
-      this.$message({
-        message: '请编辑文章',
-        type: 'success'
-      });
+      loading.close();
     } else {
-      this.$message({
-        message: '请选择要编辑的文章',
-        type: 'success'
-      });
-      // this.$router.push('/articalList');
+      setTimeout(() => {
+        loading.close();
+        this.delVisitedTab(this.$route.name);
+        this.$router.push('/articalList');
+        this.$message({
+          message: '请先选择要编辑的文章',
+          center: true,
+          type: 'success'
+        });
+      }, 1000);
     }
   }
 };

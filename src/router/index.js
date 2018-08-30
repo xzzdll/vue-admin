@@ -101,16 +101,6 @@ const router = new Router({
           },
           component: resolve =>
             require(['@/views/list/userList.vue'], resolve)
-        },
-        {
-          path: 'newUser',
-          name: 'newUser',
-          meta: {
-            title: '新建用户',
-            routerPath: 'newUser'
-          },
-          component: resolve =>
-            require(['@/views/list/newUser.vue'], resolve)
         }
       ]
     },

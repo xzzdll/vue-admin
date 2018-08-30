@@ -46,7 +46,6 @@
           </template>
           <el-menu-item-group>
             <el-menu-item index="userList">用户列表</el-menu-item>
-            <el-menu-item index="newUser">新建用户</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>

@@ -19,6 +19,16 @@
             <el-menu-item index="editArtical">编辑文章</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
+        <el-submenu index="d">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>说说管理</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="sayList">说说列表</el-menu-item>
+            <el-menu-item index="newSay">写说说</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
         <el-submenu index="b">
           <template slot="title">
             <i class="el-icon-location"></i>

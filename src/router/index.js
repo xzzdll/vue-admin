@@ -43,6 +43,26 @@ const router = new Router({
             require(['@/views/list/newArtical.vue'], resolve)
         },
         {
+          path: 'sayList',
+          name: 'sayList',
+          meta: {
+            title: '文章列表',
+            routerPath: 'sayList'
+          },
+          component: resolve =>
+            require(['@/views/list/sayList.vue'], resolve)
+        },
+        {
+          path: 'newSay',
+          name: 'newSay',
+          meta: {
+            title: '新文章',
+            routerPath: 'newSay'
+          },
+          component: resolve =>
+            require(['@/views/list/newSay.vue'], resolve)
+        },
+        {
           path: 'editArtical',
           name: 'editArtical',
           meta: {

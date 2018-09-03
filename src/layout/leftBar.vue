@@ -39,15 +39,10 @@
             <el-menu-item index="articalAccessStatistics">文章列表访问统计</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-submenu index="c">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>用户管理</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="userList">用户列表</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
+        <el-menu-item index="userList" style="padding-left:5px;">
+          <i class="el-icon-location"></i>
+          <span>用户管理</span>
+        </el-menu-item>
       </el-menu>
     </div>
     <div class="sidebar-footer" @click="toggleMenu">

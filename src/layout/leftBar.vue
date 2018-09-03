@@ -29,16 +29,6 @@
             <el-menu-item index="newSay">写说说</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-submenu index="b">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>数据统计</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="accessStatistics">访问统计</el-menu-item>
-            <el-menu-item index="articalAccessStatistics">文章列表访问统计</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
         <el-menu-item index="userList" style="padding-left:5px;">
           <i class="el-icon-location"></i>
           <span>用户管理</span>

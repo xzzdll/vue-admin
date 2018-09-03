@@ -3,16 +3,16 @@
     <el-container>
       <el-main>
         <el-table :data="tableData" height="400px">
-          <el-table-column label="操作" min-width="40" align="center">
+          <el-table-column label="操作" min-width="8" align="left">
             <template slot-scope="scope">
               <el-button plain @click="handleDeleteClick(scope.row._id)" type="danger" size="mini">删除</el-button>
             </template>
           </el-table-column>
-          <el-table-column prop="_id" label="id" min-width="40" align="center">
+          <el-table-column prop="_id" label="id" min-width="18" align="left">
           </el-table-column>
-          <el-table-column prop="date" label="日期" min-width="40" align="center">
+          <el-table-column prop="date" label="日期" min-width="8" align="left">
           </el-table-column>
-          <el-table-column label="内容" min-width="40" align="center">
+          <el-table-column label="内容" min-width="50" align="left">
             <template slot-scope="scope">
               <span v-html="scope.row.content">{{ scope.row.content }}</span>
             </template>
@@ -47,12 +47,12 @@ export default {
       this.pageSize = val;
     },
     handleDeleteClick (val) {
-      this.$confirm('确认删除该文章?', '提示', {
+      this.$confirm('确认删除该说说?', '提示', {
         confirmButtonText: '确认',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        fetch('artical/delete', { id: val }).then((data) => {
+        fetch('say/delete', { id: val }).then((data) => {
           if (data.status === 'true') {
             this.$message({
               message: data.message,

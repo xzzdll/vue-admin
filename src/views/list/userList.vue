@@ -5,14 +5,13 @@
       <el-main>
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="文章标题">
-            <el-input v-model="formInline.title" placeholder="请输入文章标题"></el-input>
+            <el-input v-model="formInline.userName" placeholder="请输入用户名"></el-input>
           </el-form-item>
           <el-form-item label="文章标签">
-            <el-input v-model="formInline.tag" placeholder="请输入文章标签"></el-input>
+            <el-input type="password" v-model="formInline.passWord" placeholder="请输入密码"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="onSubmit">立即添加</el-button>
-            <el-button>取消</el-button>
           </el-form-item>
         </el-form>
       </el-main>
@@ -20,7 +19,7 @@
     <el-container>
       <el-header>用户列表</el-header>
       <el-main>
-        <el-table :data="tableData" height="400px">
+        <el-table :data="tableData">
           <el-table-column label="操作" min-width="40" align="center">
             <template slot-scope="scope">
               <el-button plain @click="handleDeleteClick(scope.row._id)" type="danger" size="mini">删除</el-button>
@@ -28,19 +27,11 @@
           </el-table-column>
           <el-table-column prop="_id" label="id" min-width="40" align="center">
           </el-table-column>
-          <el-table-column prop="date" label="日期" min-width="40" align="center">
+          <el-table-column prop="username" label="用户名" min-width="40" align="center">
           </el-table-column>
-          <el-table-column label="内容" min-width="40" align="center">
-            <template slot-scope="scope">
-              <span v-html="scope.row.content">{{ scope.row.content }}</span>
-            </template>
+          <el-table-column prop="password" label="密码" min-width="40" align="center">
           </el-table-column>
-          <!-- <el-table-column prop="content" label="内容" min-width="150" align="center" show-overflow-tooltip>
-          </el-table-column> -->
         </el-table>
-        <div style="height:20px"> </div>
-        <el-pagination @size-change="handleSizeChange" class="z-pagination" :current-page.sync="currentPage" :page-size="pageSize" layout="sizes, prev, pager, next, jumper,total" :total="totalRows">
-        </el-pagination>
       </el-main>
     </el-container>
   </div>
@@ -50,32 +41,26 @@ import fetch from '../../fetch/api';
 export default {
   data () {
     return {
-      editorOption: {},
       formInline: {
-        title: null,
-        type: null,
-        tag: null
+        userName: null,
+        passWord: null
       },
-      tableData: [],
-      totalRows: 60,
-      currentPage: 1,
-      pageSize: 20
+      tableData: []
     };
   },
   methods: {
     onSubmit () {
-      fetch('artical/create', this.formInline).then((data) => {
+      fetch('user/create', this.formInline).then((data) => {
         if (data.status === 'true') {
           this.$message({
             message: data.message,
             type: 'success'
           });
           this.formInline = {
-            title: null,
-            type: null,
-            tag: null
+            userName: null,
+            passWord: null
           };
-          this.$router.push('/articalList');
+          this.updateData();
         } else {
           this.$message.error(data.message);
         }
@@ -85,12 +70,12 @@ export default {
       this.pageSize = val;
     },
     handleDeleteClick (val) {
-      this.$confirm('确认删除该文章?', '提示', {
+      this.$confirm('确认删除该用户?', '提示', {
         confirmButtonText: '确认',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        fetch('artical/delete', { id: val }).then((data) => {
+        fetch('user/delete', { id: val }).then((data) => {
           if (data.status === 'true') {
             this.$message({
               message: data.message,
@@ -104,7 +89,7 @@ export default {
       });
     },
     updateData () {
-      fetch('say/list').then((data) => {
+      fetch('user/list').then((data) => {
         if (data.status === 'true') {
           this.tableData = data.list;
         } else {

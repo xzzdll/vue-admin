@@ -61,7 +61,7 @@ import welcomeBg from '../../assets/welcome/Ba.png';
 import iconDoc from '../../assets/welcome/doc.png';
 import iconExcel from '../../assets/welcome/exc.png';
 import iconPdf from '../../assets/welcome/pdf.png';
-import fetch from '../../fetch/api';
+// import fetch from '../../fetch/api';
 export default {
   data () {
     return {
@@ -70,8 +70,8 @@ export default {
         iconPdf: iconPdf,
         iconExcel: iconExcel,
         iconDoc: iconDoc,
-        sysName: '后台管理系统',
-        discription: '宣传标语',
+        sysName: 'John博客后台管理系统',
+        discription: '我可不喜欢失败',
         imgUrl: welcomeBg
       },
       //  联系方式信息
@@ -106,11 +106,6 @@ export default {
           type: 'iconDoc',
           id: 4,
           name: '使用文档二使用文档二使用文档二使用文档二'
-        },
-        {
-          type: 'iconExcel',
-          id: 5,
-          name: '使用文档二使用文档二使用文档二使用文档二'
         }
       ]
     };
@@ -121,11 +116,6 @@ export default {
     }
   },
   mounted () {
-    fetch('login', { userName: 'john', passWord: '1605' });
-    // fetch('/artical/delete', { id: '5b6cf9c374aaf83d24340386' });
-    // fetch('/artical/edit', { id: '5b6cf9c174aaf83d24340385', content: '测试啊啊啊' });
-    // fetch('/artical/create', { title: '测试标题', content: '测试啊啊啊' });
-    // fetch('/artical/list');
   }
 };
 
@@ -134,7 +124,7 @@ export default {
 $bannerDiscriptionColor: #fff;
 .app-welcome {
   .app-footer {
-    height: 180px;
+    height: 225px;
     width: 100%;
     position: relative;
     .app-footer-copyRight {

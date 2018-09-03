@@ -73,26 +73,6 @@ const router = new Router({
             require(['@/views/list/editArtical.vue'], resolve)
         },
         {
-          path: 'accessStatistics',
-          name: 'accessStatistics',
-          meta: {
-            title: '访问统计',
-            routerPath: 'accessStatistics'
-          },
-          component: resolve =>
-            require(['@/views/list/accessStatistics.vue'], resolve)
-        },
-        {
-          path: 'articalAccessStatistics',
-          name: 'articalAccessStatistics',
-          meta: {
-            title: '文章列表访问统计',
-            routerPath: 'articalAccessStatistics'
-          },
-          component: resolve =>
-            require(['@/views/list/articalAccessStatistics.vue'], resolve)
-        },
-        {
           path: 'userList',
           name: 'userList',
           meta: {

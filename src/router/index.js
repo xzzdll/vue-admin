@@ -46,7 +46,7 @@ const router = new Router({
           path: 'sayList',
           name: 'sayList',
           meta: {
-            title: '文章列表',
+            title: '说说列表',
             routerPath: 'sayList'
           },
           component: resolve =>
@@ -56,7 +56,7 @@ const router = new Router({
           path: 'newSay',
           name: 'newSay',
           meta: {
-            title: '新文章',
+            title: '写说说',
             routerPath: 'newSay'
           },
           component: resolve =>

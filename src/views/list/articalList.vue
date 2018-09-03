@@ -5,6 +5,7 @@
         <el-table :data="tableData" height="400px">
           <el-table-column label="操作" min-width="40" align="center">
             <template slot-scope="scope">
+              <el-button plain @click="handleShowClick(scope.row._id)" type="primary" size="mini">查看</el-button>
               <el-button plain @click="handleEditClick(scope.row._id)" type="primary" size="mini">编辑</el-button>
               <el-button plain @click="handleDeleteClick(scope.row._id)" type="danger" size="mini">删除</el-button>
             </template>
@@ -63,17 +64,9 @@ export default {
     },
     handleEditClick (val) {
       this.$router.push({ path: '/editArtical', query: { id: val } });
-      // fetch('artical/edit', { id: val }).then((data) => {
-      //   if (data.status === 'true') {
-      //     this.$message({
-      //       message: data.message,
-      //       type: 'success'
-      //     });
-      //     this.updateData();
-      //   } else {
-      //     this.$message.error(data.message);
-      //   }
-      // });
+    },
+    handleShowClick (val) {
+      window.open('http://47.98.115.136/blog/#/artical?id=' + val);
     },
     updateData () {
       fetch('artical/list').then((data) => {

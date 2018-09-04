@@ -14,9 +14,6 @@
             <el-option label="Css" value="Css"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="文章标签">
-          <el-input v-model="formInline.tag" placeholder="请输入文章标签"></el-input>
-        </el-form-item>
       </el-form>
     </el-header>
     <el-main style="height:390px">
@@ -36,15 +33,17 @@
 <script>
 import fetch from '../../fetch/api';
 import { mapActions } from 'vuex';
+import { util } from '../../utils/util';
 export default {
   data () {
     return {
       editorOption: {},
       formInline: {
+        id: null,
         title: null,
         type: null,
-        tag: null,
-        content: null
+        content: null,
+        date: util.getCurDateWithOutTimeWeek()
       }
     };
   },
@@ -53,7 +52,7 @@ export default {
       delVisitedTab: 'delVisitedView'
     }),
     onSubmit () {
-      fetch('artical/create', this.formInline).then((data) => {
+      fetch('artical/edit', this.formInline).then((data) => {
         if (data.status === 'true') {
           this.$message({
             message: data.message,
@@ -62,8 +61,8 @@ export default {
           this.formInline = {
             title: null,
             type: null,
-            tag: null,
-            content: null
+            content: null,
+            date: util.getCurDateWithOutTimeWeek()
           };
           this.$router.push('/articalList');
         } else {
@@ -80,6 +79,17 @@ export default {
     });
     if (this.$route.query.id) {
       loading.close();
+      fetch('artical/list', { id: this.$route.query.id }).then((data) => {
+        if (data.status === 'true') {
+          let dataSource = data.list[0];
+          this.formInline.id = dataSource._id;
+          this.formInline.title = dataSource.title;
+          this.formInline.type = dataSource.type;
+          this.formInline.content = dataSource.content;
+        } else {
+          this.$message.error(data.message);
+        }
+      });
     } else {
       setTimeout(() => {
         loading.close();
@@ -90,7 +100,7 @@ export default {
           center: true,
           type: 'success'
         });
-      }, 1000);
+      }, 500);
     }
   }
 };

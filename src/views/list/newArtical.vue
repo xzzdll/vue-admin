@@ -14,9 +14,6 @@
             <el-option label="Css" value="Css"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="文章标签">
-          <el-input v-model="formInline.tag" placeholder="请输入文章标签"></el-input>
-        </el-form-item>
       </el-form>
     </el-header>
     <el-main style="height:390px">
@@ -34,6 +31,7 @@
 </template>
 <script>
 import fetch from '../../fetch/api';
+import { util } from '../../utils/util';
 export default {
   data () {
     return {
@@ -41,8 +39,8 @@ export default {
       formInline: {
         title: null,
         type: null,
-        tag: null,
-        content: null
+        content: null,
+        date: util.getCurDateWithOutTimeWeek()
       }
     };
   },
@@ -57,8 +55,8 @@ export default {
           this.formInline = {
             title: null,
             type: null,
-            tag: null,
-            content: null
+            content: null,
+            date: util.getCurDateWithOutTimeWeek()
           };
           this.$router.push('/articalList');
         } else {

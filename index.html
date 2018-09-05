@@ -1,15 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
-    <title>blog-admin</title>
-  </head>
-  <link href="https://cdn.bootcss.com/element-ui/2.4.0/theme-chalk/index.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <body style="margin:0px">
-    <div id="app">Loading。。。</div>
-    <!-- built files will be auto injected -->
-    <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
+  <title>blog-admin</title>
+</head>
+<link href="https://cdn.bootcss.com/element-ui/2.4.0/theme-chalk/index.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body style="margin:0px">
+  <div id="app">
+    <canvas id="myCanvas" style="background: #fff;">
+    </canvas>
+  </div>
+  <!-- built files will be auto injected -->
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
+  <script>
+    var canvas = document.getElementById("myCanvas");
+    canvas.width = window.innerWidth - 5;
+    canvas.height = window.innerHeight - 5;
+    var context = canvas.getContext("2d"),
+      cirX = canvas.width / 2,
+      cirY = canvas.height / 2,
+      n = 1;
+
+    //绘制文本
+    function writeText(n) {
+      context.save();
+      context.strokeStyle = "#49f";
+      context.font = "40px Arial";
+      var str = '加载中.';
+      switch (parseInt(n % 3)) {
+        case 0:
+          str = '加载中...'
+          break;
+        case 1:
+          str = '加载中.'
+          break;
+        case 2:
+          str = '加载中..'
+          break;
+        default:
+          break
+      }
+      context.strokeText(str, cirX - 95, cirY);
+      context.stroke();
+      context.restore();
+    }
+
+    function DreamLoading() {
+      //清除所有，重新绘制
+      context.clearRect(0, 0, canvas.width, canvas.height)
+      writeText(n);
+
+      if (n <= 99) {
+        n = n + 1;
+      } else {
+        return;
+      }
+      setTimeout(DreamLoading, 500);
+    }
+    DreamLoading();
+  </script>
+</body>
+
 </html>

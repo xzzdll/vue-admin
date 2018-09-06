@@ -18,7 +18,7 @@
           </el-table-column> -->
         </el-table>
         <div style="height:20px"> </div>
-        <el-pagination @size-change="handleSizeChange" class="z-pagination" :current-page.sync="currentPage" :page-size="pageSize" layout="sizes, prev, pager, next, jumper,total" :total="totalRows">
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" class="z-pagination" :current-page.sync="currentPage" :page-size="pageSize" layout="sizes, prev, pager, next, jumper,total" :total="totalRows">
         </el-pagination>
       </el-main>
     </el-container>
@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       tableData: [],
-      totalRows: 60,
+      totalRows: 0,
       currentPage: 1,
       pageSize: 20
     };
@@ -42,6 +42,11 @@ export default {
   methods: {
     handleSizeChange (val) {
       this.pageSize = val;
+      this.updateData();
+    },
+    handleCurrentChange (val) {
+      this.currentPage = val;
+      this.updateData();
     },
     handleDeleteClick (val) {
       this.$confirm('确认删除该文章?', '提示', {
@@ -69,9 +74,11 @@ export default {
       window.open('http://47.98.115.136/blog/#/artical?id=' + val);
     },
     updateData () {
-      fetch('artical/list').then((data) => {
+      fetch('artical/list', { currentPage: this.currentPage,
+        pageSize: this.pageSize }).then((data) => {
         if (data.status === 'true') {
           this.tableData = data.list;
+          this.totalRows = data.totalRows;
         } else {
           this.$message.error(data.message);
         }

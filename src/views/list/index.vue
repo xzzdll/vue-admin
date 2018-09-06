@@ -19,36 +19,19 @@
       </el-row>
     </div>
     <div class="app-info">
-      <div class="app-info-header">
-        <span class="title">
-          <i class="fa fa-volume-up" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;最新公告：</span>
-      </div>
-      <div class="app-info-content">
-        <div></div>
-      </div>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <div id="main" style="height:200px">
+          </div>
+        </el-col>
+        <el-col :span="12">
+          <div id="main2" style="height:200px">
+          </div>
+        </el-col>
+      </el-row>
     </div>
     <div class="app-doc">
-      <div class="app-doc-header">
-        <span class="title">
-          <i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;常见文档：</span>
-      </div>
-      <div class="app-doc-content">
-        <div class="app-doc-content-padding">
-          <el-row :gutter="20">
-            <el-col v-for="(item) in docArray" :key="item.id" :span="6">
-              <div class="app-doc-item clearboth">
-                <div class="app-doc-item-left FL">
-                  <span><img :src="lntroduce[`${item.type}`]" style="width:42px;height:56px;"></span>
-                </div>
-                <div class="app-doc-item-right FR">
-                  <div class="doc-name">{{item.name}}</div>
-                  <div class="doc-control" @click="downloadDoc(item)">点击下载</div>
-                </div>
-              </div>
-            </el-col>
-          </el-row>
-        </div>
-      </div>
+
     </div>
     <div class="app-footer">
       <div class="app-footer-pic"><img src="../../assets/welcome/banner.png" height="100%" /></div>
@@ -61,7 +44,8 @@ import welcomeBg from '../../assets/welcome/Ba.png';
 import iconDoc from '../../assets/welcome/doc.png';
 import iconExcel from '../../assets/welcome/exc.png';
 import iconPdf from '../../assets/welcome/pdf.png';
-// import fetch from '../../fetch/api';
+import echarts from 'echarts';
+import fetch from '../../fetch/api';
 export default {
   data () {
     return {
@@ -79,43 +63,73 @@ export default {
         name: 'John',
         qq: '634408262'
       },
-      // 公告
-      noticeArray: [{
-        id: 1,
-        name: '第一个公告',
-        conetnt: '第一个公告的内容'
-      }],
-      //  常见文档
-      docArray: [
-        {
-          type: 'iconPdf',
-          id: 1,
-          name: '使用文档1'
-        },
-        {
-          type: 'iconPdf',
-          id: 2,
-          name: '使用文档二使用文档二使用文档二使用文档二'
-        },
-        {
-          type: 'iconDoc',
-          id: 3,
-          name: '使用文档二使用文档二使用文档二使用文档二'
-        },
-        {
-          type: 'iconDoc',
-          id: 4,
-          name: '使用文档二使用文档二使用文档二使用文档二'
-        }
-      ]
+      articals: [],
+      names: []
     };
   },
   methods: {
-    downloadDoc (item) {
-      this.$alert(`此功能未开通`).then(() => { }, () => { });
+    initEcharts (id) {
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = echarts.init(document.getElementById(id));
+      // 绘制图表
+      myChart.setOption({
+        tooltip: {
+          trigger: 'item',
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
+        },
+        legend: {
+          orient: 'vertical',
+          x: 'left',
+          data: this.names
+        },
+        series: [
+          {
+            name: '访问数量',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              normal: {
+                show: false,
+                position: 'center'
+              },
+              emphasis: {
+                show: true,
+                textStyle: {
+                  fontSize: '14',
+                  fontWeight: 'bold'
+                }
+              }
+            },
+            labelLine: {
+              normal: {
+                show: false
+              }
+            },
+            data: this.articals
+          }
+        ],
+        color: [
+          '#5bd75b', '#83aaf0', '#ff9873', '#9fd7fb', '#e18cde'
+        ]
+      });
     }
   },
   mounted () {
+    fetch('artical/list').then((data) => {
+      if (data.status === 'true') {
+        this.articals = data.list.map(x => {
+          return { name: x.title, value: x.times };
+        });
+        this.names = data.list.map(x => {
+          return x.title;
+        });
+        this.initEcharts('main');
+        // this.initEcharts('main2');
+      } else {
+        this.$message.error(data.message);
+      }
+    });
   }
 };
 
@@ -147,73 +161,12 @@ $bannerDiscriptionColor: #fff;
   }
   background-color: #edeff5;
   .app-info {
-    .app-info-header {
-      .title {
-        .fa {
-          font-size: 16px;
-          color: #c2c4cc;
-        }
-        color: #6e6e6e;
-        font-size: 14px;
-      }
-    }
     padding: 1.8% 0;
     border-top: 1px dashed #d5d8df;
     border-bottom: 1px dashed #d5d8df;
     margin-bottom: 4px;
   }
   .app-doc {
-    .app-doc-content {
-      padding: 2.5% 0;
-      .app-doc-content-padding {
-        .app-doc-item {
-          box-shadow: -3px 10px 10px #dee1ea;
-          margin-bottom: 15px;
-          text-align: center;
-          .app-doc-item-left {
-            width: 30%;
-            font-size: 44px;
-            color: #7bc6ff;
-          }
-          .app-doc-item-right {
-            width: 70%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            .doc-name {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-              padding: 10px 5px;
-              color: #181818;
-              font-size: 14px;
-            }
-            .doc-control {
-              color: #a3a3a3;
-              font-size: 12px;
-              border: 1px dashed #a3a3a3;
-              border-radius: 4px;
-              display: inline-block;
-              padding: 2px 5px;
-              cursor: pointer;
-            }
-          }
-          padding: 15px;
-          background-color: #fff;
-          border-radius: 4px;
-        }
-      }
-    }
-    .app-doc-header {
-      .title {
-        .fa {
-          font-size: 16px;
-          color: #c2c4cc;
-        }
-        color: #6e6e6e;
-        font-size: 14px;
-      }
-    }
     padding: 1.8% 0;
     border-top: 1px dashed #d5d8df;
     margin-bottom: 4px;

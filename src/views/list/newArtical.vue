@@ -32,10 +32,18 @@
 <script>
 import fetch from '../../fetch/api';
 import { util } from '../../utils/util';
+import hljs from 'highlight.js';
 export default {
   data () {
     return {
-      editorOption: {},
+      editorOption: {
+        modules: {
+          syntax: {
+            highlight: text => hljs.highlightAuto(text).value
+          }
+        },
+        theme: 'snow'
+      },
       formInline: {
         title: null,
         type: null,

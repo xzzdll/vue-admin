@@ -16,8 +16,8 @@
         </el-form-item>
       </el-form>
     </el-header>
-    <el-main style="height:390px">
-      <quill-editor v-model="formInline.content" ref="myQuillEditor" :options="editorOption" style="height:270px">
+    <el-main style="height:auto" class="quill-editor">
+      <quill-editor v-model="formInline.content" ref="myQuillEditor" :options="editorOption" style="height:auto">
       </quill-editor>
     </el-main>
     <el-footer>
